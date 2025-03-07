@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Home() {
    return (
        <>
@@ -39,9 +41,9 @@ export default function Home() {
               >
                 Get started
               </a>
-              <a href="#" className="text-sm/6 font-semibold text-white">
+              <Link to="/about-us" className="text-sm/6 font-semibold text-white">
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
