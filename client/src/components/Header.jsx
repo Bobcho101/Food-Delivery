@@ -5,6 +5,7 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navigation = [
+      { name: 'Home', href: '/' },
       { name: 'Order Food', href: '/order-food' },
       { name: 'About Us', href: '/about-us' },
       { name: 'Contacts', href: '/contacts' },
@@ -14,14 +15,14 @@ export default function Header() {
         <header className="absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
-            <Link to={"/"} className="-m-1.5 p-1.5">
+            {/* <Link to={"/"} className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=004d2c"
                 className="h-8 w-auto"
               />
-            </Link>
+            </Link> */}
           </div>
           <div className="flex lg:hidden">
             <button
@@ -41,9 +42,9 @@ export default function Header() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm/6 font-semibold text-white">
+            {/* <a href="#" className="text-sm/6 font-semibold text-white">
               Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </a> */}
           </div>
         </nav>
         {mobileMenuOpen && (
