@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navigation = [
-      { name: 'Product', href: '#' },
-      { name: 'Features', href: '#' },
-      { name: 'Marketplace', href: '#' },
-      { name: 'Company', href: '#' },
+      { name: 'Order Food', href: '/order-food' },
+      { name: 'About Us', href: '/about-us' },
+      { name: 'Contacts', href: '/contacts' },
     ]
    return (
        <>
@@ -31,6 +29,7 @@ export default function Header() {
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
             >
               <span className="sr-only">Open main menu</span>
+              <span className="text-white text-xl">☰</span>
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
@@ -46,6 +45,28 @@ export default function Header() {
             </a>
           </div>
         </nav>
+        {mobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 bg-black bg-opacity-90 z-50">
+            <div className="p-6">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block text-white text-lg py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 bg-[#006e3c] px-4 py-2 rounded text-white"
+              >
+                Close Menu
+              </button>
+            </div>
+          </div>
+        )}
       </header>
        </>
    );
