@@ -16,15 +16,7 @@ export default function Home() {
     />
   </div>
   <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-      <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-100 ring-1 ring-gray-400 hover:ring-gray-300">
-        Announcing new restaurant partners!{' '}
-        <a href="#" className="font-semibold text-[#E63946]">
-          <span aria-hidden="true" className="absolute inset-0" />
-          See More <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
+    
     <div className="text-center">
       <h1 className="text-5xl font-semibold tracking-tight text-balance text-[#FFFAF0] sm:text-7xl">
         Fast & Fresh Food Delivery
@@ -33,12 +25,12 @@ export default function Home() {
         Order from your favorite restaurants and get delicious meals delivered in minutes. Fresh ingredients, quick service!
       </p>
       <div className="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          href="#"
+        <Link
+          to="/order-food"
           className="rounded-md bg-[#E63946] px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-[#C32F3A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E63946]"
         >
           Order Now
-        </a>
+        </Link>
         <Link to="/about-us" className="text-sm/6 font-semibold text-white">
           Learn more <span aria-hidden="true">→</span>
         </Link>
