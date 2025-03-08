@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import About from './components/About';
+import Contacts from './components/Contacts';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
