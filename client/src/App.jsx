@@ -6,20 +6,16 @@ import NotFound from './components/NotFound';
 import About from './components/About';
 
 export default function App() {
- 
-
   return (
-    <>
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div className="bg-[#1E1B18] text-gray-100 min-h-screen flex flex-col">
       <Header />
-      <div className="flex-grow">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
-          <Route path={"/*"} element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      </main>
     </div>
-    </>
-  )
+  );
 }
