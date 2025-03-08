@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
+import About from './components/About';
 
 export default function App() {
  
@@ -14,6 +15,7 @@ export default function App() {
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
           <Route path={"/*"} element={<NotFound />} />
         </Routes>
       </div>
