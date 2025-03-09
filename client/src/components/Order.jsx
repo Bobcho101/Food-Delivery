@@ -18,7 +18,7 @@ export default function OrderFood() {
     return (
         <div className="bg-[#1E1B18] text-gray-100">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12">
-        <h2 className="text-3xl font-bold tracking-tight text-[#FFB703]">Customers also purchased</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-[#FFB703]">Menu</h2>
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {food.map((curFood) => (
