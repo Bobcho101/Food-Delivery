@@ -6,6 +6,7 @@ import NotFound from './components/NotFound';
 import About from './components/About';
 import Contacts from './components/Contacts';
 import OrderFood from './components/Order';
+import Details from './components/Details';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/order-food" element={<OrderFood />} />
+          <Route path="/order-food/:id" element={<Details />} />
           <Route path="/about-us" element={<About />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />
