@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import { fetchOneFood } from "../services/foodService";
+import { fetchAllFood, fetchOneFood } from "../services/foodService";
 
 export default function Details() {
     const params = useParams();
  
     const [food, setFood] = useState({});
-    const [recommendedFood, setRecommendedFood] = useState({});
+    const [recommendedFood, setRecommendedFood] = useState([]);
     
-    const getOneFood = async (paramsId) => {
-        setFood(await fetchOneFood(paramsId));
+    const getOneFood = async (curFoodId) => {
+        setFood(await fetchOneFood(curFoodId));
     }
 
-    const getRecommendedFood = async (category) => {
-        
+    const getRecommendedFood = async (category, curFoodId) => {
+        setRecommendedFood(await fetchAllFood(category, curFoodId));
     }
 
     
     useEffect(() => {
         getOneFood(params.id);
-        getRecommendedFood(food.category)
-    }, [params.id, food.category]);
+        getRecommendedFood(food.category, food.id)
+    }, [params.id, food.category, food.id]);
 
     return (
         
@@ -39,7 +39,7 @@ export default function Details() {
                     className="rounded-lg w-full h-auto max-h-[400px] object-contain"
                 />
             </div>
-            <h2 className="text-5xl font-bold text-[#FFB703]">{food.name}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFB703]">{food.name}</h2>
             <div className="mt-8">
                 <h3 className="text-2xl font-semibold text-[#00000]">{food.price} lv.</h3>
             </div>
@@ -52,35 +52,20 @@ export default function Details() {
             <div className="mt-12">
                 <h3 className="text-2xl font-semibold text-[#FFB703]">You might also like:</h3>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
-                    <img
-                    alt="Food"
-                    src="https://via.placeholder.com/200x200.png?text=Pasta"
-                    className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
-                    />
-                    <h3 className="mt-4 text-lg font-semibold text-gray-100">Penne Arrabbiata</h3>
-                    <p className="text-md font-semibold text-[#FFB703]">15.99 lv.</p>
-                </div>
-
-                <div className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
-                    <img
-                    alt="Food"
-                    src="https://via.placeholder.com/200x200.png?text=Pizza"
-                    className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
-                    />
-                    <h3 className="mt-4 text-lg font-semibold text-gray-100">Margherita Pizza</h3>
-                    <p className="text-md font-semibold text-[#FFB703]">12.99 lv.</p>
-                </div>
-
-                <div className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
-                    <img
-                    alt="Food"
-                    src="https://via.placeholder.com/200x200.png?text=Salad"
-                    className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
-                    />
-                    <h3 className="mt-4 text-lg font-semibold text-gray-100">Caesar Salad</h3>
-                    <p className="text-md font-semibold text-[#FFB703]">9.99 lv.</p>
-                </div>
+                {recommendedFood.length > 0 ? 
+                recommendedFood.map((curFood) => 
+                    (
+                    <div key={curFood.id} className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
+                       <img
+                       alt="Food"
+                       src={curFood.image}
+                       className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
+                       />
+                       <h3 className="mt-4 text-lg font-semibold text-gray-100">{curFood.name}</h3>
+                       <p className="text-md font-semibold text-[#FFB703]">{curFood.price} lv.</p>
+                   </div>) )
+                   : <h1 className="text-2xl font-semibold text-[#fffff] ml-3" >No Recommendations</h1>
+                }
                 </div>
             </div>
             </div>
