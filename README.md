@@ -3,11 +3,12 @@ This is an application for ordering food (*you cannot*). This is my first applic
 
 ## Tech Stack
 
-**Client**
+### **Client**
 1. React
 2. React Router
 3. Tailwind 
-**Server**
+
+### **Server**
 1. Express
 
 
