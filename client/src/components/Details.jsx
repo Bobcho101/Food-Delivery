@@ -23,13 +23,11 @@ export default function Details() {
     }, [params.id, food.category, food.id]);
 
     return (
-        
-        
         <div className="bg-[#1E1B18] text-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
             <div className="max-w-4xl w-full bg-[#2A2523] p-8 rounded-lg shadow-lg">
             <Link to={"/order-food"}>
             <button className="bg-[#FFB703] cursor-pointer text-[#1E1B18] font-semibold text-lg py-1 px-4 mb-6 inline-flex items-center rounded-md hover:bg-[#E89B00] focus:outline-none focus:ring-2 focus:ring-[#FFB703] focus:ring-offset-2 transition-all duration-300">
-                Back
+                Back to Menu
             </button>
             </Link>
             <div className="flex justify-center">
