@@ -1,4 +1,4 @@
-export async function getAllFood() {
+export async function fetchAllFood() {
     try{
         const res = await fetch('http://localhost:3001/food');
         const data = await res.json();

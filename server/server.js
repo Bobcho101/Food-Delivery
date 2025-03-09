@@ -29,7 +29,7 @@ const food = [
       category: "Dessert",
       price: 6.99,
       description: "Rich and moist chocolate cake topped with ganache.",
-      image: "https://example.com/chocolate-cake.jpg"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6hDj7njGxosYemhW_ffWIev4KX4QfE1CDRQ&s"
     }
 ];
 
