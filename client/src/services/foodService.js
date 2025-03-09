@@ -14,8 +14,7 @@ export async function fetchAllFood(categoryFilter, curFoodId) {
             } else{
                 data.slice(0, 2);
             }
-
-           
+            
             return data;
         }
         
