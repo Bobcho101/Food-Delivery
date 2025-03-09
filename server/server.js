@@ -39,6 +39,11 @@ app.get('/food', (req, res) => {
 });
 
 
+app.get('/food/:id', (req, res) => {
+    const id = req.params.id;
+    const currentFood = food.find(curFood => curFood.id == id);
+    res.json(currentFood);
+});
 
 
 app.listen(PORT, console.log(`http://localhost:${PORT}`));
