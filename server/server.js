@@ -19,7 +19,7 @@ const food = [
       id: "f2b6d9c1-23bc-5e7c-90f8-234567890002",
       name: "Cheeseburger",
       category: "Burger",
-      price: 9.49,
+      price: 3.49,
       description: "Juicy beef patty with cheddar cheese, lettuce, and tomato.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsz9eXYu1uA-ahCZspJW39V9DyzqgGQ9N5pA&s"
     },
@@ -27,7 +27,7 @@ const food = [
       id: "f3c7e0d2-34cd-6f8d-a1g2-345678900003",
       name: "Chocolate Cake",
       category: "Dessert",
-      price: 6.99,
+      price: 15.99,
       description: "Rich and moist chocolate cake topped with ganache.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6hDj7njGxosYemhW_ffWIev4KX4QfE1CDRQ&s"
     }

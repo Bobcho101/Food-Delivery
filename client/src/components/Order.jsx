@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAllFood } from "../services/foodService";
+import { Link } from "react-router";
 
 export default function OrderFood() {
     const [food, setFood] = useState([]);
@@ -21,23 +22,24 @@ export default function OrderFood() {
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {food.map((curFood) => (
-            <div key={curFood.id} className="group relative bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
-                <img
-                alt={curFood.name}
-                src={curFood.image}
-                className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
-                />
-                <div className="mt-4 flex justify-between items-center">
-                <div>
-                    <h3 className="text-lg font-semibold text-gray-100">
-                    <a className="hover:text-[#E63946]">
-                        {curFood.name}
-                    </a>
-                    </h3>
+            <Link to={`/order-food/${curFood.id}`} key={curFood.id}>
+                <div className="group relative bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
+                   
+                    <img
+                    alt={curFood.name}
+                    src={curFood.image}
+                    className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
+                    />
+                    <div className="mt-4 flex justify-between items-center">
+                    <div>
+                        <h3 className="text-lg font-semibold text-gray-100">
+                            {curFood.name}
+                        </h3>
+                    </div>
+                    <p className="text-md font-semibold text-[#FFB703]">{curFood.price} lv.</p>
+                    </div>
                 </div>
-                <p className="text-md font-semibold text-[#FFB703]">{curFood.price}</p>
-                </div>
-            </div>
+                </Link>
             ))}
         </div>
         </div>
