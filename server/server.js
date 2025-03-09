@@ -45,6 +45,16 @@ app.get('/food/:id', (req, res) => {
     res.json(currentFood);
 });
 
+app.get('/recommendedFood/:category', (req, res) => {
+    let recommendedFood = [];
+    for(let curFood of food){
+        if(curFood.category === req.params.category){
+            recommendedFood.push(curFood);
+        }
+    }
+
+    res.json(recommendedFood);
+});
 
 app.listen(PORT, console.log(`http://localhost:${PORT}`));
 

@@ -6,15 +6,21 @@ export default function Details() {
     const params = useParams();
  
     const [food, setFood] = useState({});
+    const [recommendedFood, setRecommendedFood] = useState({});
     
     const getOneFood = async (paramsId) => {
         setFood(await fetchOneFood(paramsId));
     }
 
+    const getRecommendedFood = async (category) => {
+        
+    }
+
     
     useEffect(() => {
         getOneFood(params.id);
-    }, [params.id]);
+        getRecommendedFood(food.category)
+    }, [params.id, food.category]);
 
     return (
         
@@ -34,7 +40,9 @@ export default function Details() {
                 />
             </div>
             <h2 className="text-5xl font-bold text-[#FFB703]">{food.name}</h2>
-
+            <div className="mt-8">
+                <h3 className="text-2xl font-semibold text-[#00000]">{food.price} lv.</h3>
+            </div>
 
             <div className="mt-8">
                 <h3 className="text-2xl font-semibold text-[#FFB703]">Description:</h3>
