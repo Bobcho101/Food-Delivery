@@ -6,7 +6,6 @@ export default function Contact() {
                 We&apos;re here to help! Reach out to us anytime for support or inquiries.
             </p>
 
-            {/* Contact Info Section */}
             <div className="mt-12 max-w-2xl mx-auto">
                 <div className="text-left">
                     <p className="text-lg text-gray-300">📧 <span className="font-semibold">Email:</span> <a href="mailto:support@fooddelivery.com" className="text-[#E63946]">bgbobi878@gmail.com</a></p>
