@@ -4,18 +4,27 @@ import { Link } from "react-router";
 
 export default function OrderFood() {
     const [food, setFood] = useState([]);
-    const [sortOption, setSortOption] = useState('name');
+    const [sortOption, setSortOption] = useState('name-asc');
 
-    const getFood = async () => {
-        setFood(await fetchAllFood());
+    const getFood = async (sort) => {
+        const allFood = await fetchAllFood();
+        if(sort === 'name-asc'){
+            allFood.sort((a, b) => a.name.localeCompare(b.name));
+        } else if(sort === 'name-desc'){
+            allFood.sort((a, b) => b.name.localeCompare(a.name));
+        } else if(sort === 'price-asc'){
+            allFood.sort((a, b) => a.price - b.price);
+        } else if(sort === 'price-desc'){
+            allFood.sort((a, b) =>  b.price - a.price);
+        }
+        setFood(allFood); 
     }
 
     useEffect(() => {
-        getFood();
-    }, []);
+        getFood(sortOption);
+    }, [sortOption]);
 
-    console.log(sortOption);
-    
+
 
     return (
         <div className="bg-[#1E1B18] text-gray-100">
