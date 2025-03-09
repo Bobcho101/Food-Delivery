@@ -87,7 +87,15 @@ const food = [
         price: 10.99,
         description: "Tender beef strips in a creamy mushroom sauce served over noodles.",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzEsYfWM6GdpyrccRQKLEX_Z8VtL5b44C24Q&s"
-    }
+    },
+    {
+        id: "f11i3k6j8-90ij-9l4k-g7n8-90132367009",
+        name: "Pancake",
+        category: "Dessert",
+        price: 3.59,
+        description: "Pancakes are fluffy, round cakes made from a batter of flour, eggs, and milk, typically served with syrup, butter, or fruit. They're a popular breakfast treat.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3pdteYF9TO9MlkknuIyZz_uxcrLzjgAW-3w&s"
+    },
 ];
 
 
