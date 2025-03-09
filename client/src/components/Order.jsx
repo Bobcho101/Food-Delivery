@@ -4,6 +4,7 @@ import { Link } from "react-router";
 
 export default function OrderFood() {
     const [food, setFood] = useState([]);
+    const [sortOption, setSortOption] = useState('name');
 
     const getFood = async () => {
         setFood(await fetchAllFood());
@@ -11,14 +12,29 @@ export default function OrderFood() {
 
     useEffect(() => {
         getFood();
-    }, [])
+    }, []);
 
-
+    console.log(sortOption);
     
+
     return (
         <div className="bg-[#1E1B18] text-gray-100">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12">
         <h2 className="text-3xl font-bold tracking-tight text-[#FFB703]">Menu</h2>
+        <div className="mt-6 flex justify-start gap-3 items-center">
+                <label htmlFor="sort" className="text-gray-100 text-lg font-semibold">Sort by:</label>
+                <select
+                    id="sort"
+                    value={sortOption}
+                    className="bg-[#2A2523] text-gray-100 p-2 rounded-md"
+                    onChange={(e) => setSortOption(e.target.value)}
+                >
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                </select>
+            </div>
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {food.map((curFood) => (
