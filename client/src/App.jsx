@@ -5,6 +5,7 @@ import Home from './components/Home';
 import NotFound from './components/NotFound';
 import About from './components/About';
 import Contacts from './components/Contacts';
+import OrderFood from './components/Order';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/order-food" element={<OrderFood />} />
           <Route path="/about-us" element={<About />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />

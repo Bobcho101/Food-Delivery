@@ -61,7 +61,7 @@ export default function Header() {
               ))}
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 bg-[#006e3c] px-4 py-2 rounded text-white"
+                className="mt-4 bg-[#E63946] px-4 py-2 rounded text-white"
               >
                 Close Menu
               </button>
