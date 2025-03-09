@@ -10,9 +10,12 @@ export async function fetchAllFood(categoryFilter, curFoodId) {
 
             if(curFoodId){
                 data = data.filter(curFood => curFood.id !== curFoodId);
+                data = data.slice(0, 3);
+            } else{
+                data.slice(0, 2);
             }
 
-            data = data.slice(0, 2);
+           
             return data;
         }
         
