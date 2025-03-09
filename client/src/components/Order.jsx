@@ -17,7 +17,7 @@ export default function OrderFood() {
 
       <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
-          <div key={product.id} className="group relative bg-[#2A2523] p-4 rounded-lg shadow-md">
+          <div key={product.id} className="group relative bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
             <img
               alt={product.imageAlt}
               src={product.imageSrc}
