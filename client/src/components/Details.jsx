@@ -55,15 +55,18 @@ export default function Details() {
                 {recommendedFood.length > 0 ? 
                 recommendedFood.map((curFood) => 
                     (
-                    <div key={curFood.id} className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
-                       <img
-                       alt="Food"
-                       src={curFood.image}
-                       className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
-                       />
-                       <h3 className="mt-4 text-lg font-semibold text-gray-100">{curFood.name}</h3>
-                       <p className="text-md font-semibold text-[#FFB703]">{curFood.price} lv.</p>
-                   </div>) )
+                    <Link to={`/order-food/${curFood.id}`} key={curFood.id}>
+                        <div className="bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
+                            <img
+                            alt="Food"
+                            src={curFood.image}
+                            className="aspect-square w-full rounded-md object-cover transition duration-300 group-hover:opacity-80"
+                            />
+                            <h3 className="mt-4 text-lg font-semibold text-gray-100">{curFood.name}</h3>
+                            <p className="text-md font-semibold text-[#FFB703]">{curFood.price} lv.</p>
+                        </div>
+                   </Link>
+                   ) )
                    : <h1 className="text-2xl font-semibold text-[#fffff] ml-3" >No Recommendations</h1>
                 }
                 </div>
