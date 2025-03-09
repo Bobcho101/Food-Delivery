@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { fetchOneFood } from "../services/foodService";
 
 export default function Details() {
+    const params = useParams();
+ 
     const [food, setFood] = useState({});
-    const getOneFood = async () => {
-        setFood(await fetchOneFood());
+    
+    const getOneFood = async (paramsId) => {
+        setFood(await fetchOneFood(paramsId));
     }
 
+    
     useEffect(() => {
-        getOneFood();
-    }, []);
+        getOneFood(params.id);
+    }, [params.id]);
+
     return (
         
         
@@ -23,20 +28,17 @@ export default function Details() {
             </Link>
             <div className="flex justify-center">
                 <img
-                src={food.image}
-                alt={food.name}
-                className="rounded-md object-cover w-full h-96 lg:h-[400px] mb-6"
+                    src={food.image}
+                    alt={food.name}
+                    className="rounded-lg w-full h-auto max-h-[400px] object-contain"
                 />
             </div>
-            <h2 className="text-3xl font-bold text-[#FFB703]">Spaghetti Carbonara</h2>
-            <p className="text-md text-gray-300 mt-2">
-                A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper. Simple, but incredibly delicious.
-            </p>
+            <h2 className="text-5xl font-bold text-[#FFB703]">{food.name}</h2>
 
 
             <div className="mt-8">
                 <h3 className="text-2xl font-semibold text-[#FFB703]">Description:</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere inventore aperiam sapiente blanditiis magnam deleniti eum amet porro. Nostrum hic commodi laudantium quasi possimus velit. Repellat minus eum vero asperiores repudiandae voluptate labore soluta, ullam consectetur iusto omnis veritatis quas alias excepturi autem dolorem doloremque dolorum deserunt nostrum nesciunt quia.</p>
+                <p>{food.description}</p>
             </div>
 
             <div className="mt-12">
