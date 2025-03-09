@@ -12,7 +12,7 @@ This is an application for ordering food (*you cannot*). This is my first applic
 
 
 ## Functionality 
-
+    
 1. Interact with 4 pages using routing.
 2. About page with detailed info for every person (without routing)
 3. Static contact page
