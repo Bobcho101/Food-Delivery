@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 
 export default function OrderFood() {
     const [food, setFood] = useState([]);
+    const [pending, setPending] = useState(false);
     const [sortOption, setSortOption] = useState('name-asc');
 
     const getFood = async (sort) => {
+        setPending(true);
         const allFood = await fetchAllFood();
         if(sort === 'name-asc'){
             allFood.sort((a, b) => a.name.localeCompare(b.name));
@@ -19,6 +21,7 @@ export default function OrderFood() {
             allFood.sort((a, b) =>  b.price - a.price);
         }
         setFood(allFood); 
+        setPending(false);
     }
 
     useEffect(() => {
@@ -47,12 +50,16 @@ export default function OrderFood() {
             </div>
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {food.map((curFood, index) => ( 
+            {pending ? (
+                    <div className="flex justify-center items-center h-[60vh]">
+                        <div className="w-12 h-12 border-4 border-[#FFB703] border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                ) : food.map((curFood, index) => ( 
                 <motion.div 
                     key={curFood.id}
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1  }}
                     viewport={{ once: true, amount: 0.2 }}
                 >
             <Link to={`/order-food/${curFood.id}`} key={curFood.id}>

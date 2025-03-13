@@ -6,10 +6,13 @@ export default function Details() {
     const params = useParams();
  
     const [food, setFood] = useState({});
+    const [pending, setPending] = useState(false);
     const [recommendedFood, setRecommendedFood] = useState([]);
     
     const getOneFood = async (curFoodId) => {
+        setPending(true);
         setFood(await fetchOneFood(curFoodId));
+        setPending(false);
     }
 
     const getRecommendedFood = async (category, curFoodId) => {
@@ -23,8 +26,13 @@ export default function Details() {
         getRecommendedFood(food.category, food.id)
     }, [params.id, food.category, food.id]);
 
-    return (
-        <div className="bg-[#1E1B18] text-gray-100 min-h-screen flex mt-12 flex-col items-center justify-center p-6">
+    return (            
+        <>
+        {pending ? (
+        <div className="flex justify-center items-center h-[60vh]">
+            <div className="w-12 h-12 border-4 border-[#FFB703] border-t-transparent rounded-full animate-spin"></div>
+        </div>
+    ) : <div className="bg-[#1E1B18] text-gray-100 min-h-screen flex mt-12 flex-col items-center justify-center p-6">
             <div className="max-w-4xl w-full bg-[#2A2523] p-8 rounded-lg shadow-lg">
             <Link to={"/order-food"}>
             <button className="bg-[#FFB703] cursor-pointer text-[#1E1B18] font-semibold text-lg py-1 px-4 mb-6 inline-flex items-center rounded-md hover:bg-[#E89B00] focus:outline-none focus:ring-2 focus:ring-[#FFB703] focus:ring-offset-2 transition-all duration-300">
@@ -64,13 +72,14 @@ export default function Details() {
                             <h3 className="mt-4 text-lg font-semibold text-gray-100">{curFood.name}</h3>
                             <p className="text-md font-semibold text-[#FFB703]">{curFood.price} lv.</p>
                         </div>
-                   </Link>
-                   ) )
-                   : <h1 className="text-2xl font-semibold text-[#fffff] ml-3" >No Recommendations</h1>
+                </Link>
+                ) )
+                : <h1 className="text-2xl font-semibold text-[#fffff] ml-3" >No Recommendations</h1>
                 }
                 </div>
             </div>
             </div>
-        </div>
+        </div> }
+        </>
     );
 }
