@@ -18,6 +18,7 @@ export default function Details() {
 
     
     useEffect(() => {
+        window.scrollTo(0, 0);
         getOneFood(params.id);
         getRecommendedFood(food.category, food.id)
     }, [params.id, food.category, food.id]);
