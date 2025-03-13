@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchAllFood } from "../services/foodService";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 
 export default function OrderFood() {
     const [food, setFood] = useState([]);
@@ -46,7 +47,14 @@ export default function OrderFood() {
             </div>
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {food.map((curFood) => (
+            {food.map((curFood, index) => ( 
+                <motion.div 
+                    key={curFood.id}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                >
             <Link to={`/order-food/${curFood.id}`} key={curFood.id}>
                 <div className="group relative bg-[#2A2523] p-4 rounded-lg shadow-md cursor-pointer">
                    
@@ -65,6 +73,7 @@ export default function OrderFood() {
                     </div>
                 </div>
                 </Link>
+                </motion.div>
             ))}
         </div>
         </div>
